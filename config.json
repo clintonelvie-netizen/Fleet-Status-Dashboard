@@ -5,7 +5,7 @@
   "isSigned": false,
   "items": [
     {
-      "url": "index.html",
+      "url": "https://fleet-status-dashboard-zeta.vercel.app/",
       "path": "ActivityLink/",
       "menuName": {
         "en": "Fleet Status Dashboard"
