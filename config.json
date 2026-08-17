@@ -1,0 +1,15 @@
+{
+  "name": "Fleet Status Dashboard",
+  "supportEmail": "support@zenduit.com",
+  "version": "1.0.0",
+  "isSigned": false,
+  "items": [
+    {
+      "url": "index.html",
+      "path": "ActivityLink/",
+      "menuName": {
+        "en": "Fleet Status Dashboard"
+      }
+    }
+  ]
+}

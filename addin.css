@@ -1,0 +1,182 @@
+/* Fleet Status Dashboard — layout, table, status badges, states */
+
+:root {
+  --surface: #ffffff;
+  --page-bg: #f4f6f8;
+  --border: #dfe3e8;
+  --text: #1f2933;
+  --text-muted: #6b7684;
+
+  --online-bg: #e3f6e8;
+  --online-text: #0f6b31;
+  --idle-bg: #fdf3d3;
+  --idle-text: #7a5601;
+  --offline-bg: #fde5e5;
+  --offline-text: #a41c1c;
+
+  --error-bg: #fdf0f0;
+  --error-border: #f0c4c4;
+  --error-text: #a41c1c;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dashboard__header {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.dashboard__subtitle {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------------ states */
+
+.state {
+  padding: 40px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.state--error {
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
+}
+
+.state__line {
+  margin: 0;
+}
+
+.state__line + .state__line {
+  margin-top: 4px;
+}
+
+/* ------------------------------------------------------------------- table */
+
+/* Horizontal scroll is confined to the table on narrow viewports so the page
+   itself never scrolls sideways. */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.fleet-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+.fleet-table th,
+.fleet-table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.fleet-table th {
+  background: #fafbfc;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.fleet-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.fleet-table tbody tr:hover {
+  background: #f7f9fa;
+}
+
+/* Long vehicle and driver names wrap instead of stretching the layout. */
+.col-vehicle,
+.col-driver {
+  max-width: 280px;
+  overflow-wrap: anywhere;
+}
+
+.col-vehicle {
+  font-weight: 500;
+}
+
+.col-comm {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.col-status {
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ badges */
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.badge--online {
+  background: var(--online-bg);
+  color: var(--online-text);
+}
+
+/* Dark text on the amber fill — yellow-on-white would not stay readable. */
+.badge--idle {
+  background: var(--idle-bg);
+  color: var(--idle-text);
+}
+
+.badge--offline {
+  background: var(--offline-bg);
+  color: var(--offline-text);
+}
+
+/* -------------------------------------------------------------- responsive */
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  .fleet-table th,
+  .fleet-table td {
+    padding: 10px 12px;
+  }
+}
